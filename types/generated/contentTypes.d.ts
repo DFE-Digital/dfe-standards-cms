@@ -477,43 +477,6 @@ export interface ApiExceptionException extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiMagicTokenMagicToken extends Struct.CollectionTypeSchema {
-  collectionName: 'magic_tokens';
-  info: {
-    description: '';
-    displayName: 'Magic token';
-    pluralName: 'magic-tokens';
-    singularName: 'magic-token';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    expiresAt: Schema.Attribute.DateTime;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::magic-token.magic-token'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    token: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    used: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    user: Schema.Attribute.Relation<
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
-  };
-}
-
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -1241,10 +1204,6 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
-    magic_token: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::magic-token.magic-token'
-    >;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
@@ -1265,6 +1224,7 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'api::standard.standard'
     >;
+    token: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1290,7 +1250,6 @@ declare module '@strapi/strapi' {
       'api::audit.audit': ApiAuditAudit;
       'api::category.category': ApiCategoryCategory;
       'api::exception.exception': ApiExceptionException;
-      'api::magic-token.magic-token': ApiMagicTokenMagicToken;
       'api::product.product': ApiProductProduct;
       'api::stage.stage': ApiStageStage;
       'api::standard-comment.standard-comment': ApiStandardCommentStandardComment;
