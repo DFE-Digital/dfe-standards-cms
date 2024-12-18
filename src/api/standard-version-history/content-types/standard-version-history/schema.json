@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "standard_version_histories",
+  "info": {
+    "singularName": "standard-version-history",
+    "pluralName": "standard-version-histories",
+    "displayName": "Standard version history"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "versionNumber": {
+      "type": "decimal",
+      "required": true
+    },
+    "detailsOfChange": {
+      "type": "text",
+      "required": true
+    },
+    "standard": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::standard.standard"
+    },
+    "dateCreated": {
+      "type": "datetime"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "magic_tokens",
+  "info": {
+    "singularName": "magic-token",
+    "pluralName": "magic-tokens",
+    "displayName": "Magic token",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "token": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "magic_token"
+    },
+    "expiresAt": {
+      "type": "datetime"
+    },
+    "used": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

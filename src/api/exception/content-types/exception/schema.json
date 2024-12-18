@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exceptions",
+  "info": {
+    "singularName": "exception",
+    "pluralName": "exceptions",
+    "displayName": "Exception",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "details": {
+      "type": "string",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}

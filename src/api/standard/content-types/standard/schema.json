@@ -1,0 +1,116 @@
+{
+  "kind": "collectionType",
+  "collectionName": "standards",
+  "info": {
+    "singularName": "standard",
+    "pluralName": "standards",
+    "displayName": "Standard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "legacyId": {
+      "type": "integer",
+      "required": false
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "stage": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::stage.stage"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "standards"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "summary": {
+      "type": "text"
+    },
+    "purpose": {
+      "type": "richtext"
+    },
+    "howToMeet": {
+      "type": "richtext"
+    },
+    "governance": {
+      "type": "richtext"
+    },
+    "governanceApproval": {
+      "type": "boolean",
+      "default": false
+    },
+    "sub_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sub-category.sub-category",
+      "inversedBy": "standards"
+    },
+    "approvedProducts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "toleratedProducts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "exceptions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::exception.exception"
+    },
+    "version": {
+      "type": "decimal",
+      "default": 0.1,
+      "required": true
+    },
+    "previousVersion": {
+      "type": "decimal",
+      "required": true
+    },
+    "draftCreated": {
+      "type": "datetime",
+      "required": true
+    },
+    "firstPublished": {
+      "type": "datetime"
+    },
+    "lastUpdated": {
+      "type": "datetime"
+    },
+    "legalStandard": {
+      "type": "boolean",
+      "default": false
+    },
+    "relatedGuidance": {
+      "type": "richtext"
+    },
+    "owners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "standardOwner"
+    },
+    "contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "standardContact"
+    }
+  }
+}

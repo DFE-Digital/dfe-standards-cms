@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "standard_comments",
+  "info": {
+    "singularName": "standard-comment",
+    "pluralName": "standard-comments",
+    "displayName": "Standard comment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "standard": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::standard.standard"
+    },
+    "comments": {
+      "type": "text"
+    },
+    "dateCreated": {
+      "type": "datetime",
+      "required": true
+    },
+    "userId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    }
+  }
+}
