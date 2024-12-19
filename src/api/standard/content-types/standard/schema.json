@@ -119,6 +119,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::phase.phase"
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

@@ -668,6 +668,10 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    creator: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     draftCreated: Schema.Attribute.DateTime & Schema.Attribute.Required;
     exceptions: Schema.Attribute.Relation<
       'oneToMany',
