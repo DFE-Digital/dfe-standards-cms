@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "phases",
+  "info": {
+    "singularName": "phase",
+    "pluralName": "phases",
+    "displayName": "Phase"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Enabled": {
+      "type": "boolean"
+    }
+  }
+}

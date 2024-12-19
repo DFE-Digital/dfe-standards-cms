@@ -111,6 +111,14 @@
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user",
       "mappedBy": "standardContact"
+    },
+    "validityTimeframe": {
+      "type": "string"
+    },
+    "phases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::phase.phase"
     }
   }
 }

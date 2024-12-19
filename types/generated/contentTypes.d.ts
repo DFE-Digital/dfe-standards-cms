@@ -477,6 +477,34 @@ export interface ApiExceptionException extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPhasePhase extends Struct.CollectionTypeSchema {
+  collectionName: 'phases';
+  info: {
+    displayName: 'Phase';
+    pluralName: 'phases';
+    singularName: 'phase';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Enabled: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::phase.phase'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -663,6 +691,7 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
       'oneToMany',
       'plugin::users-permissions.user'
     >;
+    phases: Schema.Attribute.Relation<'oneToMany', 'api::phase.phase'>;
     previousVersion: Schema.Attribute.Decimal & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     purpose: Schema.Attribute.RichText;
@@ -684,6 +713,7 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    validityTimeframe: Schema.Attribute.String;
     version: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0.1>;
@@ -1250,6 +1280,7 @@ declare module '@strapi/strapi' {
       'api::audit.audit': ApiAuditAudit;
       'api::category.category': ApiCategoryCategory;
       'api::exception.exception': ApiExceptionException;
+      'api::phase.phase': ApiPhasePhase;
       'api::product.product': ApiProductProduct;
       'api::stage.stage': ApiStageStage;
       'api::standard-comment.standard-comment': ApiStandardCommentStandardComment;
