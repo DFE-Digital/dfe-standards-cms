@@ -85,6 +85,10 @@
     },
     "token": {
       "type": "string"
+    },
+    "Administrator": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
