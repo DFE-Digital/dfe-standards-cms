@@ -94,8 +94,7 @@
       "type": "datetime"
     },
     "legalStandard": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "relatedGuidance": {
       "type": "richtext"
@@ -127,6 +126,9 @@
     },
     "standardId": {
       "type": "integer"
+    },
+    "legalBasis": {
+      "type": "text"
     }
   }
 }

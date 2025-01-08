@@ -684,7 +684,8 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
     howToMeet: Schema.Attribute.RichText;
     lastUpdated: Schema.Attribute.DateTime;
     legacyId: Schema.Attribute.Integer;
-    legalStandard: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    legalBasis: Schema.Attribute.Text;
+    legalStandard: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
