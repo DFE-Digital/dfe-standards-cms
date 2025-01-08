@@ -124,6 +124,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "standardId": {
+      "type": "integer"
     }
   }
 }

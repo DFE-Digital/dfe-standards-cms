@@ -702,6 +702,7 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
     relatedGuidance: Schema.Attribute.RichText;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     stage: Schema.Attribute.Relation<'oneToOne', 'api::stage.stage'>;
+    standardId: Schema.Attribute.Integer;
     sub_categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::sub-category.sub-category'
