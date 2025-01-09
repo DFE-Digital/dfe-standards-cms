@@ -719,7 +719,7 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    validityTimeframe: Schema.Attribute.String;
+    validityPeriod: Schema.Attribute.Integer;
     version: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0.1>;

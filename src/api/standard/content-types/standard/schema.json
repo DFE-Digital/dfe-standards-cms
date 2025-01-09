@@ -111,9 +111,6 @@
       "target": "plugin::users-permissions.user",
       "mappedBy": "standardContact"
     },
-    "validityTimeframe": {
-      "type": "string"
-    },
     "phases": {
       "type": "relation",
       "relation": "oneToMany",
@@ -129,6 +126,9 @@
     },
     "legalBasis": {
       "type": "text"
+    },
+    "validityPeriod": {
+      "type": "integer"
     }
   }
 }
