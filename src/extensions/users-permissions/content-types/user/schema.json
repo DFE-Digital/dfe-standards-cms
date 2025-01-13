@@ -89,6 +89,9 @@
     "Administrator": {
       "type": "boolean",
       "default": false
+    },
+    "JobRole": {
+      "type": "string"
     }
   }
 }
