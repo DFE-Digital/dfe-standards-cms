@@ -76,7 +76,7 @@
     },
     "version": {
       "type": "decimal",
-      "default": 0.1,
+      "default": 0.01,
       "required": true
     },
     "previousVersion": {

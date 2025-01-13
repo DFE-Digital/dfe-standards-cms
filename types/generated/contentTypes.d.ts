@@ -722,7 +722,7 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
     validityPeriod: Schema.Attribute.Integer;
     version: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<0.1>;
+      Schema.Attribute.DefaultTo<0.01>;
   };
 }
 
