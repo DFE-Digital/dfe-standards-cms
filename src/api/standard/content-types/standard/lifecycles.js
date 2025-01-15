@@ -11,23 +11,7 @@ module.exports = {
     async beforeUpdate(event) {
         const { data, where } = event.params;
 
-        console.log(where)
-        console.log(data)
-
-
-        // Fetch the current standard
-        const existingStandard = await strapi.entityService.findOne('api::standard.standard', where.id);
-
-
-        console.log('existingStandard', existingStandard)
-
-        const currentVersion = existingStandard.version || 0;
-
-        // Increment the version by 0.01
-        const newVersion = parseFloat((currentVersion + 0.01).toFixed(2));
-
-        // Update the version field
-        data.version = newVersion;
+        data.isModified = 1;
 
     },
 
@@ -46,7 +30,6 @@ module.exports = {
             console.log('updatedStandard', updatedStandard)
             // Add your custom logic here
             // Example: Trigger an external API or log the event
-            await customLogic(result);
         }
     }
 };
