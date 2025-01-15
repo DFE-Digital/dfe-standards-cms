@@ -27,11 +27,6 @@
       "type": "string",
       "required": true
     },
-    "entityId": {
-      "type": "integer",
-      "required": true,
-      "unique": false
-    },
     "oldValue": {
       "type": "text",
       "required": true
@@ -44,6 +39,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "entityId": {
+      "type": "string"
     }
   }
 }

@@ -415,7 +415,7 @@ export interface ApiAuditAudit extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     details: Schema.Attribute.Text;
     entity: Schema.Attribute.String & Schema.Attribute.Required;
-    entityId: Schema.Attribute.Integer & Schema.Attribute.Required;
+    entityId: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::audit.audit'> &
       Schema.Attribute.Private;
