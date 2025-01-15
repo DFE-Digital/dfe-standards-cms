@@ -604,7 +604,10 @@ export interface ApiStandardCommentStandardComment
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    userId: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
+    user: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
   };
 }
 
