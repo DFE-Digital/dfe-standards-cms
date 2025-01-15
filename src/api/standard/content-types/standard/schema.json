@@ -129,6 +129,12 @@
     },
     "validityPeriod": {
       "type": "integer"
+    },
+    "standard_comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::standard-comment.standard-comment",
+      "mappedBy": "standard"
     }
   }
 }

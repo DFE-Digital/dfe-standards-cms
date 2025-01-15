@@ -599,7 +599,7 @@ export interface ApiStandardCommentStandardComment
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    standard: Schema.Attribute.Relation<'oneToOne', 'api::standard.standard'>;
+    standard: Schema.Attribute.Relation<'manyToOne', 'api::standard.standard'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -706,6 +706,10 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
     relatedGuidance: Schema.Attribute.RichText;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     stage: Schema.Attribute.Relation<'oneToOne', 'api::stage.stage'>;
+    standard_comments: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::standard-comment.standard-comment'
+    >;
     standardId: Schema.Attribute.Integer;
     sub_categories: Schema.Attribute.Relation<
       'manyToMany',

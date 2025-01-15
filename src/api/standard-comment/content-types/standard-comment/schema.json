@@ -18,8 +18,9 @@
     },
     "standard": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::standard.standard"
+      "relation": "manyToOne",
+      "target": "api::standard.standard",
+      "inversedBy": "standard_comments"
     },
     "comments": {
       "type": "text"
