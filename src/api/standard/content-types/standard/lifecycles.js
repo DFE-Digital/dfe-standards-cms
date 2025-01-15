@@ -18,8 +18,14 @@ module.exports = {
         // Fetch the current standard
         const existingStandard = await strapi.entityService.findOne('api::standard.standard', where.id);
 
+        // Check if the data object contains a key of isModified and if it is set to 0
 
-        data.isModified = 1;
+        if (data.isModified === 0) {
+            data.isModified = 0
+        }
+        else {
+            data.isModified = 1;
+        }
 
     },
 
