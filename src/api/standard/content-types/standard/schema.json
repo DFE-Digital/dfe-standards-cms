@@ -135,6 +135,9 @@
       "relation": "oneToMany",
       "target": "api::standard-comment.standard-comment",
       "mappedBy": "standard"
+    },
+    "isModified": {
+      "type": "boolean"
     }
   }
 }

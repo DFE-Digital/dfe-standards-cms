@@ -687,6 +687,7 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
     governanceApproval: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     howToMeet: Schema.Attribute.RichText;
+    isModified: Schema.Attribute.Boolean;
     lastUpdated: Schema.Attribute.DateTime;
     legacyId: Schema.Attribute.Integer;
     legalBasis: Schema.Attribute.Text;
