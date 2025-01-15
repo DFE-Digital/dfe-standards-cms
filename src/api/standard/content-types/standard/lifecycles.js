@@ -11,6 +11,14 @@ module.exports = {
     async beforeUpdate(event) {
         const { data, where } = event.params;
 
+        console.log(where)
+        console.log(data)
+
+
+        // Fetch the current standard
+        const existingStandard = await strapi.entityService.findOne('api::standard.standard', where.id);
+
+
         data.isModified = 1;
 
     },
