@@ -30,4 +30,23 @@ module.exports = {
         data.version = newVersion;
 
     },
+
+    async afterUpdate(event) {
+        const { result, params } = event;
+
+        // Check if the 'publishedAt' field has been set (indicating publish)
+        if (result.publishedAt && params.data.publishedAt === result.publishedAt) {
+            console.log(`Content type "${result.id}" was published!`);
+
+            console.log(result)
+            console.log(params)
+
+            const updatedStandard = await strapi.entityService.findOne('api::standard.standard', result.id);
+
+            console.log('updatedStandard', updatedStandard)
+            // Add your custom logic here
+            // Example: Trigger an external API or log the event
+            await customLogic(result);
+        }
+    }
 };
