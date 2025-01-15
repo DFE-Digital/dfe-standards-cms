@@ -7,24 +7,27 @@ module.exports = {
         }
     },
 
-    // // Increment the version number by 0.01 whenever there is a change on any field
-    // async beforeUpdate(event) {
-    //     const { data, where } = event.params;
+    // Increment the version number by 0.01 whenever there is a change on any field
+    async beforeUpdate(event) {
+        const { data, where } = event.params;
 
-    //     console.log(where)
-
-
-    //     // Fetch the current standard
-    //     const existingStandard = await strapi.entityService.findOne('api::standard.standard', where.id);
+        console.log(where)
+        console.log(data)
 
 
-    //     const currentVersion = existingStandard.version || 0;
+        // Fetch the current standard
+        const existingStandard = await strapi.entityService.findOne('api::standard.standard', where.id);
 
-    //     // Increment the version by 0.01
-    //     const newVersion = parseFloat((currentVersion + 0.01).toFixed(2));
 
-    //     // Update the version field
-    //     data.version = newVersion;
+        console.log('existingStandard', existingStandard)
 
-    // },
+        const currentVersion = existingStandard.version || 0;
+
+        // Increment the version by 0.01
+        const newVersion = parseFloat((currentVersion + 0.01).toFixed(2));
+
+        // Update the version field
+        data.version = newVersion;
+
+    },
 };
