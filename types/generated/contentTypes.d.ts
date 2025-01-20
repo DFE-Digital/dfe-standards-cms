@@ -667,7 +667,7 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
       'api::category.category'
     >;
     contacts: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'plugin::users-permissions.user'
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -699,7 +699,7 @@ export interface ApiStandardStandard extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     owners: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'plugin::users-permissions.user'
     >;
     phases: Schema.Attribute.Relation<'oneToMany', 'api::phase.phase'>;
@@ -1265,11 +1265,11 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.role'
     >;
     standardContact: Schema.Attribute.Relation<
-      'manyToOne',
+      'manyToMany',
       'api::standard.standard'
     >;
     standardOwner: Schema.Attribute.Relation<
-      'manyToOne',
+      'manyToMany',
       'api::standard.standard'
     >;
     token: Schema.Attribute.String;

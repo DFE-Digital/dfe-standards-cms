@@ -73,13 +73,13 @@
     },
     "standardOwner": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::standard.standard",
       "inversedBy": "owners"
     },
     "standardContact": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::standard.standard",
       "inversedBy": "contacts"
     },

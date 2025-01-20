@@ -99,18 +99,6 @@
     "relatedGuidance": {
       "type": "richtext"
     },
-    "owners": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user",
-      "mappedBy": "standardOwner"
-    },
-    "contacts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user",
-      "mappedBy": "standardContact"
-    },
     "phases": {
       "type": "relation",
       "relation": "oneToMany",
@@ -138,6 +126,18 @@
     },
     "isModified": {
       "type": "boolean"
+    },
+    "owners": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "standardOwner"
+    },
+    "contacts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "standardContact"
     }
   }
 }
